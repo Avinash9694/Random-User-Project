@@ -6,7 +6,6 @@ import {
   FaMap,
   FaPhone,
   FaLock,
-  FaEnvelope,
 } from "react-icons/fa";
 const url = "https://randomuser.me/api/";
 const defaultImage = "https://randomuser.me/api/portraits/men/75.jpg";
@@ -53,7 +52,11 @@ function App() {
   }, []);
 
   const handleValue = (e) => {
-    console.log(e.target);
+    if (e.target.classList.contains("icon")) {
+      const newValue = e.target.dataset.label;
+      setTitle(newValue);
+      setValue(person[newValue]);
+    }
   };
   return (
     <main>
